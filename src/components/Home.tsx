@@ -9,17 +9,110 @@ import { Ionicons } from "@expo/vector-icons";
 export default function HomeScreen(props) {
   const { theme, toggleTheme } = useTheme();
   const navigation = useNavigation();
+  const todoList = [
+    {
+      id: 1,
+      title: "Meeting with team",
+      description: "Discuss project milestones and upcoming tasks.",
+      date: "2025-02-28",
+      time: "10:00 AM",
+      completed: true,
+    },
+    {
+      id: 2,
+      title: "Submit assignment",
+      description: "Complete and submit the web development assignment.",
+      date: "2025-02-16",
+      time: "3:00 PM",
+      completed: true,
+    },
+    {
+      id: 3,
+      title: "Plan content for YouTube",
+      description: "Brainstorm ideas for the next 'Tau Gak Sih?' video.",
+      date: "2025-02-17",
+      time: "5:00 PM",
+      completed: false,
+    },
+    {
+      id: 4,
+      title: "Coffee shop website update",
+      description: "Add new menu items to the UMKM coffee shop website.",
+      date: "2025-02-18",
+      time: "1:00 PM",
+      completed: false,
+    },
+    {
+      id: 1,
+      title: "Meeting with team",
+      description: "Discuss project milestones and upcoming tasks.",
+      date: "2025-02-15",
+      time: "10:00 AM",
+      completed: true,
+    },
+    {
+      id: 2,
+      title: "Submit assignment",
+      description: "Complete and submit the web development assignment.",
+      date: "2025-02-16",
+      time: "3:00 PM",
+      completed: true,
+    },
+    {
+      id: 3,
+      title: "Plan content for YouTube",
+      description: "Brainstorm ideas for the next 'Tau Gak Sih?' video.",
+      date: "2025-02-16",
+      time: "5:00 PM",
+      completed: false,
+    },
+    {
+      id: 4,
+      title: "Coffee shop website update",
+      description: "Add new menu items to the UMKM coffee shop website.",
+      date: "2025-02-18",
+      time: "1:00 PM",
+      completed: false,
+    },
+    {
+      id: 1,
+      title: "Meeting with team",
+      description: "Discuss project milestones and upcoming tasks.",
+      date: "2025-02-15",
+      time: "10:00 AM",
+      completed: true,
+    },
+    {
+      id: 2,
+      title: "Submit assignment",
+      description: "Complete and submit the web development assignment.",
+      date: "2025-02-17",
+      time: "3:00 PM",
+      completed: true,
+    },
+    {
+      id: 3,
+      title: "Plan content for YouTube",
+      description: "Brainstorm ideas for the next 'Tau Gak Sih?' video.",
+      date: "2025-02-21",
+      time: "5:00 PM",
+      completed: false,
+    },
+    {
+      id: 4,
+      title: "Coffee shop",
+      description: "Add new menu items to the UMKM coffee shop website.",
+      date: "2025-02-21",
+      time: "1:00 PM",
+      completed: false,
+    }
+  ];
 
-  const ThemeToggleButton = () => {
-    return (
-      <View style={{ padding: 10 }}>
-        <Switch
-          value={theme === "light"}
-          onValueChange={toggleTheme}
-        />
-      </View>
-    );
-  };
+  // Mendapatkan tanggal hari ini dalam format 'YYYY-MM-DD'
+   const today = new Date().toISOString().split('T')[0];
+
+  // Filter untuk menampilkan task hari ini
+  const todayTasks = todoList.filter(item => item.date === today);
 
   return (
     <View style={{  flex: 1, position:'relative' }}>
@@ -41,24 +134,53 @@ export default function HomeScreen(props) {
         <Divider />
       <ScrollView style={{ backgroundColor: theme === "light" ? "#fff" : "#1E1E1E" }}>
 
-        {/* Notes */}
-        <View style={{ paddingHorizontal: 20, paddingVertical: 30 }}>
-          <Text style={{ fontFamily: 'Inter-Bold', marginBottom: 20, color: '#999999' }}>My Notes</Text>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {[...Array(5)].map((_, index) => (
-              <TouchableOpacity key={index} style={{ borderWidth: 1, borderRadius: 20, padding: 30, marginHorizontal: 10, gap:20, backgroundColor: theme === 'light' ? '#fff' : '#646464', borderColor: theme === 'light' ? '#000' : '#fff' }}>
+      {/* Notes */}
+      <View style={{ paddingHorizontal: 20, paddingVertical: 30 }}>
+        <Text style={{ fontFamily: 'Inter-Bold', marginBottom: 20, color: '#999999' }}>My Notes</Text>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          {todayTasks.length > 0 ? (
+            todayTasks.map((item, index) => (
+              <TouchableOpacity 
+                key={index} 
+                style={{ 
+                  borderWidth: 1, 
+                  borderRadius: 20, 
+                  padding: 30, 
+                  marginHorizontal: 10, 
+                  gap: 20, 
+                  backgroundColor: theme === 'light' ? '#fff' : '#242525', 
+                  borderColor: theme === 'light' ? '#000' : '#fff' 
+                }}
+              >
                 <Ionicons name="document-text-outline" size={30} style={{ color: theme === "light" ? "#000000" : "#fff" }} />
-                <Text style={{ color: theme === "light" ? "#000000" : "#fff" }}>New Page</Text>
+                <Text style={{ color: theme === "light" ? "#000000" : "#fff" }}>{item.title}</Text>
               </TouchableOpacity>
-            ))}
-          </ScrollView>
-        </View>
+            ))
+          ) : (
+            // Placeholder jika tidak ada catatan
+            <TouchableOpacity 
+              style={{ 
+                borderWidth: 1, 
+                borderRadius: 20, 
+                padding: 30, 
+                marginHorizontal: 10, 
+                gap: 20, 
+                backgroundColor: theme === 'light' ? '#fff' : '#242525', 
+                borderColor: theme === 'light' ? '#000' : '#fff' 
+              }}
+            >
+              <Ionicons name="document-text-outline" size={30} style={{ color: theme === "light" ? "#000000" : "#fff" }} />
+              <Text style={{ color: theme === "light" ? "#000000" : "#fff" }}>New Notes</Text>
+            </TouchableOpacity>
+          )}
+        </ScrollView>
+      </View>
 
         {/* Todo list */}
         <View style={{ paddingHorizontal: 20, paddingBottom: "20%", marginVertical:10 }}>
         <Text style={{ fontFamily: 'Inter-Bold',marginBottom:30, color: '#999999' }}>To-Do List</Text>
           <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
-            {[...Array(10)].map((_, index) => (
+            {[...Array(1)].map((_, index) => (
               <TouchableOpacity key={index} style={{ backgroundColor: '#242525', flexDirection: 'row', padding: 20, borderRadius: 20, alignItems: 'center', marginBottom: 10 }}>
                 <Ionicons name="calendar-clear-outline" size={25} color="#fff" style={{ marginRight: 10 }} />
                 <Text style={{ color: '#fff', fontFamily: 'Inter-Bold' }}>New Task</Text>

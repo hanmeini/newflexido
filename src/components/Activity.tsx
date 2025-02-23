@@ -7,102 +7,102 @@ import { Divider } from "react-native-paper";
 import { Ionicons } from "@expo/vector-icons";
 
 const todoList = [
-  // {
-  //   id: 1,
-  //   title: "Meeting with team",
-  //   description: "Discuss project milestones and upcoming tasks.",
-  //   date: "2025-02-15",
-  //   time: "10:00 AM",
-  //   completed: true,
-  // },
-  // {
-  //   id: 2,
-  //   title: "Submit assignment",
-  //   description: "Complete and submit the web development assignment.",
-  //   date: "2025-02-16",
-  //   time: "3:00 PM",
-  //   completed: true,
-  // },
-  // {
-  //   id: 3,
-  //   title: "Plan content for YouTube",
-  //   description: "Brainstorm ideas for the next 'Tau Gak Sih?' video.",
-  //   date: "2025-02-17",
-  //   time: "5:00 PM",
-  //   completed: false,
-  // },
-  // {
-  //   id: 4,
-  //   title: "Coffee shop website update",
-  //   description: "Add new menu items to the UMKM coffee shop website.",
-  //   date: "2025-02-18",
-  //   time: "1:00 PM",
-  //   completed: false,
-  // },
-  // {
-  //   id: 1,
-  //   title: "Meeting with team",
-  //   description: "Discuss project milestones and upcoming tasks.",
-  //   date: "2025-02-15",
-  //   time: "10:00 AM",
-  //   completed: true,
-  // },
-  // {
-  //   id: 2,
-  //   title: "Submit assignment",
-  //   description: "Complete and submit the web development assignment.",
-  //   date: "2025-02-16",
-  //   time: "3:00 PM",
-  //   completed: true,
-  // },
-  // {
-  //   id: 3,
-  //   title: "Plan content for YouTube",
-  //   description: "Brainstorm ideas for the next 'Tau Gak Sih?' video.",
-  //   date: "2025-02-16",
-  //   time: "5:00 PM",
-  //   completed: false,
-  // },
-  // {
-  //   id: 4,
-  //   title: "Coffee shop website update",
-  //   description: "Add new menu items to the UMKM coffee shop website.",
-  //   date: "2025-02-18",
-  //   time: "1:00 PM",
-  //   completed: false,
-  // },
-  // {
-  //   id: 1,
-  //   title: "Meeting with team",
-  //   description: "Discuss project milestones and upcoming tasks.",
-  //   date: "2025-02-15",
-  //   time: "10:00 AM",
-  //   completed: true,
-  // },
-  // {
-  //   id: 2,
-  //   title: "Submit assignment",
-  //   description: "Complete and submit the web development assignment.",
-  //   date: "2025-02-16",
-  //   time: "3:00 PM",
-  //   completed: true,
-  // },
-  // {
-  //   id: 3,
-  //   title: "Plan content for YouTube",
-  //   description: "Brainstorm ideas for the next 'Tau Gak Sih?' video.",
-  //   date: "2025-02-17",
-  //   time: "5:00 PM",
-  //   completed: false,
-  // },
-  // {
-  //   id: 4,
-  //   title: "Coffee shop website update",
-  //   description: "Add new menu items to the UMKM coffee shop website.",
-  //   date: "2025-02-18",
-  //   time: "1:00 PM",
-  //   completed: false,
-  // }
+  {
+    id: 1,
+    title: "Meeting with team",
+    description: "Discuss project milestones and upcoming tasks.",
+    date: "2025-02-28",
+    time: "10:00 AM",
+    completed: true,
+  },
+  {
+    id: 2,
+    title: "Submit assignment",
+    description: "Complete and submit the web development assignment.",
+    date: "2025-02-16",
+    time: "3:00 PM",
+    completed: true,
+  },
+  {
+    id: 3,
+    title: "Plan content for YouTube",
+    description: "Brainstorm ideas for the next 'Tau Gak Sih?' video.",
+    date: "2025-02-17",
+    time: "5:00 PM",
+    completed: false,
+  },
+  {
+    id: 4,
+    title: "Coffee shop website update",
+    description: "Add new menu items to the UMKM coffee shop website.",
+    date: "2025-02-18",
+    time: "1:00 PM",
+    completed: false,
+  },
+  {
+    id: 1,
+    title: "Meeting with team",
+    description: "Discuss project milestones and upcoming tasks.",
+    date: "2025-02-15",
+    time: "10:00 AM",
+    completed: true,
+  },
+  {
+    id: 2,
+    title: "Submit assignment",
+    description: "Complete and submit the web development assignment.",
+    date: "2025-02-16",
+    time: "3:00 PM",
+    completed: true,
+  },
+  {
+    id: 3,
+    title: "Plan content for YouTube",
+    description: "Brainstorm ideas for the next 'Tau Gak Sih?' video.",
+    date: "2025-02-16",
+    time: "5:00 PM",
+    completed: false,
+  },
+  {
+    id: 4,
+    title: "Coffee shop website update",
+    description: "Add new menu items to the UMKM coffee shop website.",
+    date: "2025-02-18",
+    time: "1:00 PM",
+    completed: false,
+  },
+  {
+    id: 1,
+    title: "Meeting with team",
+    description: "Discuss project milestones and upcoming tasks.",
+    date: "2025-02-15",
+    time: "10:00 AM",
+    completed: true,
+  },
+  {
+    id: 2,
+    title: "Submit assignment",
+    description: "Complete and submit the web development assignment.",
+    date: "2025-02-17",
+    time: "3:00 PM",
+    completed: true,
+  },
+  {
+    id: 3,
+    title: "Plan content for YouTube",
+    description: "Brainstorm ideas for the next 'Tau Gak Sih?' video.",
+    date: "2025-02-17",
+    time: "5:00 PM",
+    completed: false,
+  },
+  {
+    id: 4,
+    title: "Coffee shop website update",
+    description: "Add new menu items to the UMKM coffee shop website.",
+    date: "2025-02-17",
+    time: "1:00 PM",
+    completed: false,
+  }
 ];
 
 export default function Activity() {
@@ -175,7 +175,7 @@ export default function Activity() {
                   marginTop: 20
                 }}
               >
-                <Ionicons name="open" size={30} style={{ color: theme === "light" ? "#fff" : "#000000" }}/>
+                <Ionicons name="open-outline" size={30} style={{ color: theme === "light" ? "#fff" : "#000000" }}/>
               </TouchableOpacity>
             </View>
           </View>

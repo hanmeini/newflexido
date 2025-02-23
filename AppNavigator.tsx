@@ -10,14 +10,16 @@ import OnBoarding from "./src/screen/OnBoarding";
 import Startedpage from "./src/screen/Startedpage";
 import ForgotPassword from "./src/screen/ForgotPassword";
 import ResetPassword from "./src/screen/ResetPassword";
+import Settings from "./src/components/Settings";
 import { useTheme } from "./src/theme/ThemeContext"; // Import hook useTheme
 import { Ionicons } from "@expo/vector-icons";
-import { View, Switch, StyleSheet, TouchableOpacity, Image, Text, Alert, TextInput } from "react-native";
+import { View, Switch, StyleSheet, TouchableOpacity, Image, Text, Alert, TextInput, } from "react-native";
 import Activity from "./src/components/Activity";
 import { Divider } from "react-native-paper";
 import { useNavigation, DrawerActions } from "@react-navigation/native"; // Import useNavigation
 import Svg, { Path } from "react-native-svg";
 import Calendar from "./src/components/Calendar";
+import AddTask from "./src/components/AddTask";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -94,8 +96,8 @@ function TabNavigator() {
         }}
       />
       <Tab.Screen
-        name="jdfbksg"
-        component={HomeScreen}
+        name="AddTask"
+        component={AddTask}
         options={{
           tabBarIcon: ({ color, focused }) => (
             <View style={styles.iconContainer}>
@@ -234,8 +236,8 @@ function CustomDrawerContent(props: any) {
             </Svg>
           )}
           label="Settings"
-          onPress={() => navigation.navigate("Days")}
-          style={getDrawerItemStyle("Days")}
+          onPress={() => navigation.navigate("Settings")}
+          style={getDrawerItemStyle("Settings")}
           labelStyle={styles.drawerLabel}
         />
       </View>
@@ -309,6 +311,7 @@ export default function AppNavigator() {
           <Stack.Screen name="ResetPassword" component={ResetPassword} />
           <Stack.Screen name="Activity" component={Activity} />
           <Stack.Screen name="Calendar" component={Calendar} />
+          <Stack.Screen name="Settings" component={Settings} />
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>
