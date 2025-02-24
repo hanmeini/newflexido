@@ -47,10 +47,10 @@ function TabNavigator() {
       initialRouteName="Home"
       screenOptions={{
         tabBarShowLabel: false,
-        tabBarActiveTintColor: theme === "light" ? "#98E2F4" : "#98E2F4",
-        tabBarInactiveTintColor: theme === "light" ? "#888" : "#fff",
+        tabBarActiveTintColor: theme === "dark" ? "#98E2F4" : "#98E2F4",
+        tabBarInactiveTintColor: theme === "dark" ? "#888" : "#fff",
         tabBarStyle: {
-          backgroundColor: theme === "light" ? "#fff" : "#161616",
+          backgroundColor: theme === "dark" ? "#fff" : "#161616",
           height: 72,
           borderTopWidth: 0, 
           elevation: 5,

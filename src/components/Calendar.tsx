@@ -7,48 +7,48 @@ import Svg, { Path } from "react-native-svg";
 import { useTheme } from "../theme/ThemeContext";
 import { ScrollView } from "react-native-gesture-handler";
 
-const CustomCalendar = () => {
-  const theme = useTheme()
+const CustomCalendar = (props:any) => {
+  const { theme, toggleTheme } = useTheme();
   const [selectedDate, setSelectedDate] = useState("");
 
   // Data dummy untuk menandai event
   const todoList = [
-    // {
-    //   id: 1,
-    //   title: "Meeting with team",
-    //   description: "Discuss project milestones and upcoming tasks.",
-    //   date: "2025-02-23",
-    //   time: "10:00 - 11:00 AM",
-    //   priority: "High Priority",
-    //   completed: true,
-    // },
-    // {
-    //   id: 2,
-    //   title: "Menyatakan Perasaan",
-    //   description: "Discuss project milestones and upcoming tasks.",
-    //   date: "2025-02-23",
-    //   time: "10:00 - 11:00 AM",
-    //   priority: "Medium Priority",
-    //   completed: true,
-    // },
-    // {
-    //   id: 3,
-    //   title: "halo dek",
-    //   description: "Discuss project milestones and upcoming tasks.",
-    //   date: "2025-02-23",
-    //   time: "10:00 - 11:00 AM",
-    //   priority: "Medium Priority",
-    //   completed: true,
-    // },
-    // {
-    //   id: 4,
-    //   title: "Menyatakan Perasaan",
-    //   description: "Discuss project milestones and upcoming tasks.",
-    //   date: "2025-02-24",
-    //   time: "10:00 - 11:00 AM",
-    //   priority: "Medium Priority",
-    //   completed: true,
-    // },
+    {
+      id: 1,
+      title: "Meeting with team",
+      description: "Discuss project milestones and upcoming tasks.",
+      date: "2025-02-24",
+      time: "10:00 - 11:00 AM",
+      priority: "High Priority",
+      completed: true,
+    },
+    {
+      id: 2,
+      title: "Menyatakan Perasaan",
+      description: "Discuss project milestones and upcoming tasks.",
+      date: "2025-02-23",
+      time: "10:00 - 11:00 AM",
+      priority: "Medium Priority",
+      completed: true,
+    },
+    {
+      id: 3,
+      title: "halo dek",
+      description: "Discuss project milestones and upcoming tasks.",
+      date: "2025-02-24",
+      time: "10:00 - 11:00 AM",
+      priority: "Medium Priority",
+      completed: true,
+    },
+    {
+      id: 4,
+      title: "Menyatakan Perasaan",
+      description: "Discuss project milestones and upcoming tasks.",
+      date: "2025-02-22",
+      time: "10:00 - 11:00 AM",
+      priority: "Medium Priority",
+      completed: true,
+    },
   ];
   const markedDates = {
     "2025-03-03": { dotColor: "#FF7E7E" }, // Overdue
@@ -63,15 +63,15 @@ const CustomCalendar = () => {
   const todayTasks = todoList.filter(item => item.date === today);
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={{ flex: 1, backgroundColor: theme === "dark" ? "#F0F2F9" : "#1E1E1E", paddingTop: 30, paddingHorizontal:20 }}>
       {/* Header Kalender */}
-      <View style={styles.header}>
+      <View style={{ flexDirection: "row", justifyContent: "space-between",alignItems: "center", marginBottom: 20, }}>
         <TouchableOpacity style={{ backgroundColor:'#242525', padding:10, borderRadius:10 }}>
           <Svg width="21" height="21" viewBox="0 0 21 21" fill="none">
             <Path d="M10.4167 2.08333C15.0104 2.08333 18.75 5.82292 18.75 10.4167C18.75 15.0104 15.0104 18.75 10.4167 18.75C5.82292 18.75 2.08333 15.0104 2.08333 10.4167C2.08333 5.82292 5.82292 2.08333 10.4167 2.08333ZM10.4167 0C4.66667 0 0 4.66667 0 10.4167C0 16.1667 4.66667 20.8333 10.4167 20.8333C16.1667 20.8333 20.8333 16.1667 20.8333 10.4167C20.8333 4.66667 16.1667 0 10.4167 0ZM10.4167 13.5417L6.25 9.375H14.5833L10.4167 13.5417Z" fill="white"/>
           </Svg>
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>March, 2025</Text>
+        <Text style={{ color: theme === "dark" ? "#000" : "#fff", fontSize: 20, fontWeight: "bold"  }}>March, 2025</Text>
         <TouchableOpacity style={{ backgroundColor:'#242525', padding:10, borderRadius:10 }}>
           <Ionicons name="add" size={24} color="white" />
         </TouchableOpacity>
@@ -81,61 +81,73 @@ const CustomCalendar = () => {
       <View style={styles.legend}>
         <View style={styles.legendItem}>
           <View style={[styles.dotLegend, { backgroundColor: "#98E2F4" }]} />
-          <Text style={styles.legendText}>Ongoing</Text>
+          <Text style={{ fontSize:14, color: theme === "dark" ? "#000" : "#fff" }}>Ongoing</Text>
         </View>
         <View style={styles.legendItem}>
           <View style={[styles.dotLegend, { backgroundColor: "#FF7E7E" }]} />
-          <Text style={styles.legendText}>Overdue</Text>
+          <Text style={{ fontSize:14, color: theme === "dark" ? "#000" : "#fff" }}>Overdue</Text>
         </View>
       </View>
 
       {/* Kalender */}
       <Calendar
-        theme={{
-          backgroundColor: "#1C1C1E",
-          calendarBackground: "#1C1C1E",
-          textSectionTitleColor: "#A1A1A1",
-          selectedDayBackgroundColor: "#3A3A3C",
-          selectedDayTextColor: "#ffffff",
-          todayTextColor: "#ffffff",
-          dayTextColor: "#ffffff",
-          textDisabledColor: "#585858",
-          dotColor: "#ffffff",
-          arrowColor: "white",
-          monthTextColor: "white",
-          textDayFontWeight: "bold",
-          textMonthFontWeight: "bold",
-          textDayHeaderFontWeight: "bold",
-          textDayFontSize: 16,
-          textMonthFontSize: 18,
-          textDayHeaderFontSize: 14,
-        }}
-        markingType={"dot"}
-        markedDates={markedDates}
-        onDayPress={(day) => setSelectedDate(day.dateString)}
-        dayComponent={({ date, state }) => {
-          const isMarked = markedDates[date.dateString];
-          const dotColor = isMarked ? isMarked.dotColor : null;
+          theme={{
+            backgroundColor: theme === "dark" ? "#1E1E1E" : "#F0F2F9", // Light mode → Putih
+            calendarBackground: theme === "dark" ? "#1E1E1E" : "#F0F2F9", // Light mode → Putih
+            textSectionTitleColor: theme === "dark" ? "#A1A1A1" : "#444", 
+            selectedDayBackgroundColor: theme === "dark" ? "#007AFF" : "#3A3A3C",
+            selectedDayTextColor: "#ffffff",
+            todayTextColor: theme === "dark" ? "#007AFF" : "#007AFF",
+            dayTextColor: theme === "dark" ? "#fff" : "#222",
+            textDisabledColor: theme === "dark" ? "#ccc" : "#A1A1A1",
+            dotColor: theme === "dark" ? "#007AFF" : "#007AFF",
+            arrowColor: "transparent", // Menyembunyikan panah navigasi
+            monthTextColor: "transparent", // Menyembunyikan teks bulan
+            textDayFontWeight: "bold",
+            textMonthFontWeight: "bold",
+            textDayHeaderFontWeight: "bold",
+            textDayFontSize: 16,
+            textMonthFontSize: 18,
+            textDayHeaderFontSize: 14,
+          }}
+          markingType={"dot"}
+          markedDates={markedDates}
+          renderHeader={() => null} // Hapus teks bulan dan panah navigasi
+          onDayPress={(day: any) => setSelectedDate(day.dateString)}
+          dayComponent={({ date, state }: any) => {
+            const isMarked = markedDates[date.dateString];
+            const dotColor = isMarked ? isMarked.dotColor : null;
 
-          return (
-            <View style={styles.dayContainer}>
-              <Text style={[styles.dayText, state === "disabled" && styles.disabledText]}>
-                {date.day}
-              </Text>
-              {dotColor && <View style={[styles.dot, { backgroundColor: dotColor }]} />}
-            </View>
-          );
-        }}
-      />
+            return (
+              <View
+                style={[
+                  styles.dayContainer,
+                  { backgroundColor: theme === "dark" ? "#7FA1CE" : "#2C2C2E" },
+                ]}
+              >
+                <Text
+                  style={[
+                    styles.dayText,
+                    { color: theme === "dark" ? "#fff" : "#fff" },
+                    state === "disabled" && { color: theme === "dark" ? "#ccc" : "#585858" },
+                  ]}
+                >
+                  {date.day}
+                </Text>
+                {dotColor && <View style={[styles.dot, { backgroundColor: dotColor }]} />}
+              </View>
+            );
+          }}
+        />
 
       {/* Divider */}
       <View style={{ position:'relative', marginTop:50, marginBottom:10 }}>
         <View style={{ flexDirection:'row', marginLeft:'10%', gap:13, marginBottom:10}}>
-          <Text style={{ fontFamily:'Inter-Bold', color:'#fff', }}>Task</Text>
-          <Text style={{ fontFamily:'Inter-Bold', color:'#fff', }}>12</Text>
+          <Text style={{ fontFamily:'Inter-Bold',  color: theme === "dark" ? "#000" : "#fff" }}>Task</Text>
+          <Text style={{ fontFamily:'Inter-Bold',  color: theme === "dark" ? "#000" : "#fff" }}>12</Text>
         </View>
         <Divider/>
-        <View style={{ backgroundColor:'#fff', width:'27%', height:5, borderRadius:20, position:'absolute', left:'6%', bottom:0,}}></View>
+        <View style={{  backgroundColor: theme === "dark" ? "#696969" : "#fff", width:'27%', height:5, borderRadius:20, position:'absolute', left:'6%', bottom:0,}}></View>
       </View>
 
       {/* Notes */}
@@ -144,8 +156,8 @@ const CustomCalendar = () => {
           todayTasks.map((item,index) => (
             <View style={{ flexDirection:'row', marginBottom:10 }}>
               <View style={{ flexDirection:'column', gap:40 }}>
-                <Text style={{ color:'#fff', maxWidth:'70%', textAlign:'right', fontFamily:'Inter-Bold' }}>08.00 <Text style={{ color:'#646464' }}>AM</Text></Text>
-                <Text style={{ color:'#fff', maxWidth:'70%', textAlign:'right', fontFamily:'Inter-Bold' }}>09.00 <Text style={{ color:'#646464' }}>AM</Text></Text>
+                <Text style={{  color: theme === "dark" ? "#000" : "#fff", maxWidth:'70%', textAlign:'right', fontFamily:'Inter-Bold' }}>08.00 <Text style={{ color:'#646464' }}>AM</Text></Text>
+                <Text style={{  color: theme === "dark" ? "#000" : "#fff", maxWidth:'70%', textAlign:'right', fontFamily:'Inter-Bold' }}>09.00 <Text style={{ color:'#646464' }}>AM</Text></Text>
               </View>
               <View style={{ flex:1 }}>
                 <View style={{ flexDirection:'column',backgroundColor:'#242525', flex:1, paddingHorizontal:20, borderRadius:20, position:'relative', justifyContent:'center', gap:5 }}>
@@ -182,18 +194,9 @@ const CustomCalendar = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#1C1C1E", paddingTop: 50, paddingHorizontal:20, },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: 20,
-  },
-  headerTitle: { color: "white", fontSize: 20, fontWeight: "bold" },
   legend: { flexDirection: "row", gap:20, marginBottom: 10 },
   legendItem: { flexDirection: "row", alignItems: "center" },
   dotLegend: { width: 6, height: 6, borderRadius: 3, marginRight: 5 },
-  legendText: { color: "white", fontSize: 14 },
 
   dayContainer: {
     width: 52, // Perbesar agar lebih rapat

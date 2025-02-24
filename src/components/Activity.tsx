@@ -99,7 +99,7 @@ const todoList = [
     id: 4,
     title: "Coffee shop website update",
     description: "Add new menu items to the UMKM coffee shop website.",
-    date: "2025-02-17",
+    date: "2025-02-24",
     time: "1:00 PM",
     completed: false,
   }
@@ -116,15 +116,15 @@ export default function Activity() {
 
   return (
     <View style={{  flex: 1, position:'relative' }}>
-        <View style={{ flexDirection: 'row', paddingTop:'15%', paddingBottom: 30, paddingHorizontal: 20, backgroundColor: theme === "light" ? "#fff" : "#1E1E1E", justifyContent: 'space-between' }}>
+        <View style={{ flexDirection: 'row', paddingTop:'10%', paddingBottom: 30, paddingHorizontal: 20, backgroundColor: theme === "dark" ? "#F0F2F9" : "#1E1E1E", justifyContent: 'space-between' }}>
             <TouchableOpacity onPress={() => navigation.openDrawer()} style={{ backgroundColor:'#242525', borderRadius:10, paddingHorizontal:10, paddingVertical:10, justifyContent:'center', alignItems:'center' }}>
               <Svg width="30" height="30" viewBox="0 0 25 25" fill="none">
               <Path d="M18.75 3.125C19.5471 3.12496 20.3141 3.42951 20.894 3.97634C21.474 4.52317 21.823 5.27094 21.8698 6.06667L21.875 6.25V18.75C21.875 19.5471 21.5705 20.3141 21.0237 20.894C20.4768 21.474 19.7291 21.823 18.9333 21.8698L18.75 21.875H6.25C5.45291 21.875 4.68592 21.5705 4.10598 21.0237C3.52603 20.4768 3.17697 19.7291 3.13021 18.9333L3.125 18.75V6.25C3.12496 5.45291 3.42951 4.68592 3.97634 4.10598C4.52317 3.52603 5.27094 3.17697 6.06667 3.13021L6.25 3.125H18.75ZM18.75 5.20833H9.375V19.7917H18.75C19.0051 19.7916 19.2514 19.698 19.4421 19.5284C19.6327 19.3589 19.7545 19.1253 19.7844 18.8719L19.7917 18.75V6.25C19.7916 5.99486 19.698 5.74861 19.5284 5.55795C19.3589 5.36728 19.1253 5.24548 18.8719 5.21562L18.75 5.20833ZM14.1802 9.59375L14.2781 9.68021L16.3615 11.7635C16.5408 11.9429 16.6485 12.1816 16.6645 12.4347C16.6804 12.6879 16.6034 12.9381 16.4479 13.1385L16.3615 13.2365L14.2781 15.3198C14.0907 15.5066 13.8391 15.6151 13.5746 15.6232C13.3101 15.6312 13.0524 15.5383 12.8539 15.3633C12.6554 15.1882 12.5309 14.9442 12.5058 14.6808C12.4807 14.4173 12.5569 14.1542 12.7188 13.9448L12.8052 13.8469L14.151 12.5L12.8052 11.1531C12.6259 10.9738 12.5181 10.7351 12.5022 10.482C12.4863 10.2288 12.5633 9.97855 12.7188 9.77812L12.8052 9.68021C12.9846 9.50086 13.2232 9.39312 13.4764 9.3772C13.7295 9.36128 13.9798 9.43828 14.1802 9.59375Z" fill="#98E2F4"/>
               </Svg>
             </TouchableOpacity>
           <View style={{ flexDirection: 'column', justifyContent: 'center' }}>
-            <Text style={{ fontFamily: 'Inter-Bold', fontSize: 17, color: theme === "light" ? "#000000" : "#FFFFFF" }}>Keynatasha</Text>
-            <Text style={{ fontFamily: 'Inter-Bold', fontSize: 12, color: theme === "light" ? "#000000" : "#FFFFFF" }}>tasha9472@gmail.com</Text>
+            <Text style={{ fontFamily: 'Inter-Bold', fontSize: 17, color: theme === "dark" ? "#000000" : "#FFFFFF" }}>Keynatasha</Text>
+            <Text style={{ fontFamily: 'Inter-Bold', fontSize: 12, color: theme === "dark" ? "#000000" : "#FFFFFF" }}>tasha9472@gmail.com</Text>
           </View>
           <TouchableOpacity style={{ backgroundColor: '#242525', borderRadius: 10, paddingHorizontal: 10, paddingVertical: 10 }}>
             <Ionicons name="mail-open" size={30} color="#fff" />
@@ -132,7 +132,7 @@ export default function Activity() {
           <Image source={require('../../assets/image/LogoFlexido.png')} style={{ width: 50, height: 50, borderRadius: 40, borderWidth: 1 }} />
         </View>
         <Divider />
-      <ScrollView style={{ backgroundColor: theme === "light" ? "#fff" : "#1E1E1E" }}>
+      <ScrollView style={{ backgroundColor: theme === "dark" ? "#F0F2F9" : "#1E1E1E" }}>
 
 
 
@@ -169,13 +169,13 @@ export default function Activity() {
               </Text>
               <TouchableOpacity 
                 style={{
-                  backgroundColor: theme === "light" ? "#1E1E1E" : "#fff",
+                  backgroundColor: theme === "dark" ? "#1E1E1E" : "#fff",
                   padding: 20,
                   borderRadius: 50,
                   marginTop: 20
                 }}
               >
-                <Ionicons name="open-outline" size={30} style={{ color: theme === "light" ? "#fff" : "#000000" }}/>
+                <Ionicons name="open-outline" size={30} style={{ color: theme === "dark" ? "#fff" : "#000000" }}/>
               </TouchableOpacity>
             </View>
           </View>

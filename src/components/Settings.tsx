@@ -10,7 +10,7 @@ const Settings = () => {
          return (
            <View style={{ padding: 10 }}>
              <Switch
-               value={theme === "light"}
+               value={theme === "dark"}
                onValueChange={toggleTheme}
              />
            </View>
